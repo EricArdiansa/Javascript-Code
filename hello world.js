@@ -8,4 +8,27 @@ console.log(car.brand);
 console.log(car.model);
 console.log(car.year);
 
-delete car.colors;
+//delete car.colors;
+
+//assigment operator pada aritmatika
+
+let a = 5;
+a += 5;
+console.log(a);
+
+a -= 2;
+console.log(a);
+
+a *= 2;
+console.log(a);
+
+1 > 5; //false
+5 > 5; //false
+5 >= 5; //true
+
+5 == 5; //true
+5 == "5"; // true
+
+5 != 5; //false
+5 === "5"; //false
+5 !== "5"; //true
