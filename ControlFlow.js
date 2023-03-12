@@ -44,3 +44,17 @@ switch (cuaca) {
     console.log("waduh dingin nih cuyy, bawa jaket yuk");
     break;
 }
+
+//How to use some good tools who provided by goverment
+
+let answer;
+answer = true;
+
+switch (answer) {
+  case true:
+    console.log("Lu begitu? astaga...");
+    break;
+  case false:
+    console.log("oh syukurlah kamu ternyata baik-baik saja");
+    break;
+}
