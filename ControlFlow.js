@@ -47,14 +47,68 @@ switch (cuaca) {
 
 //How to use some good tools who provided by goverment
 
-let answer;
-answer = true;
+const yes = true;
+const no = false;
 
-switch (answer) {
+let yourAnswer;
+yourAnswer = yes;
+
+switch (yourAnswer) {
   case true:
     console.log("Lu begitu? astaga...");
     break;
   case false:
     console.log("oh syukurlah kamu ternyata baik-baik saja");
+    break;
+}
+
+let userName = "Eric Ardiansa";
+let condition = true;
+
+if ((condition = true)) {
+  console.log("Alive");
+} else {
+  console.log("Die");
+}
+
+console.log(condition);
+
+//apa yang terjadi nih..
+
+const ya = true;
+const tidak = false;
+
+let terhibur;
+terhibur = ya;
+
+switch (terhibur) {
+  case true:
+    //let x = "be yourself";
+    // let y = "and never surrender";
+    console.log("baiklah");
+    break;
+
+  case false:
+    //  let xx = " wowww";
+    //  let yy = "damnn";
+    console.log("ohmm.. menarik sekali");
+    break;
+}
+
+//Mencoba sesuatu yang lain dengan format yang sama,
+// membiasakan diri dengan if-else
+
+const fear = "ketakutan";
+const pemberi = "keberkahan";
+
+let whatAreYou;
+whatAreYou = "keberkahan";
+
+switch (whatAreYou) {
+  case "ketakutan":
+    console.log("Ya allah selamatkan hambamu ini");
+    break;
+  case "keberkahan":
+    console.log("ya allah terima kasih telah menyelamatkan hambamu ini");
     break;
 }
