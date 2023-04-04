@@ -22,6 +22,8 @@ const ArrObj = [
 ];
 
 console.log(ArrObj[1]);
+console.log(ArrObj[2]);
+console.log(ArrObj[0]);
 
 //Format diatas merupakan format yang digunakan dalam Dokumen Json.
 //Struktur tersebut dibangun dari Array dan Object.
@@ -77,3 +79,27 @@ const wolfAge = Object1.age;
 const humanAge = Object.age;
 
 console.log(wolfAge, humanAge);
+
+const profile2 = {
+  firstName2: "Eric",
+  lastName2: "Ardiansa",
+  age2: 17,
+};
+
+let siapa = true;
+
+/*
+if (siapa === true) {
+  let me = "Nama kamu";
+  let us = "Usia Kamu";
+} else {
+  let me = "Nama saya";
+  let us = "Usia saya";
+}
+*/
+
+let me = "Nama kamu";
+let us = "Usia Kamu";
+const { firstName2, lastName2, age2 } = profile2;
+
+console.log(`${me}`, firstName2, lastName2, `${us}`, age2);
