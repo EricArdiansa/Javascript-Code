@@ -84,9 +84,36 @@ EmailService.prototype.sendDelayedMessage = function (
   }, delay);
 };
 
-const whatsapp = new WhatsAppService("+6281234567890");
+// const whatsapp = new WhatsAppService("+6281234567890");
 const email = new EmailService("dimas@dicoding.com");
 whatsapp.sendMessage("Hello", "+6289876543210");
 whatsapp.sendBroadcastMessage("Hello", ["+6289876543210", "+6282234567890"]);
 email.sendMessage("Hello", "john@doe.com");
 email.sendDelayedMessage("Hello", "john@doe.com", 3000);
+
+// Operator instanceof
+// Ketika menulis kode, kita seringkali kita perlu mengecek jenis dari objek tersebut.
+// Salah satu cara mengetahui jenis objek adalah dengan mengecek rantai prototype-nya.
+// Nah, untuk mengetes sebuah objek berdasarkan prototype dari constructor function atau class tertentu,
+// kita bisa menggunakan operator instanceof.
+
+// operand1 instanceof operand2
+
+// Penjelasannya:
+
+// operand1: merupakan objek yang ingin dites prototype-nya.
+// operand2: merupakan constructor function atau class.
+// Berikut contoh penggunaan dari operator instanceof dalam mengecek objek whatsapp yang merupakan instance dari
+// class WhatsAppService.
+
+const whatsapp = new WhatsAppService("+6281234567890");
+
+console.log(whatsapp instanceof WhatsAppService); // true
+console.log(whatsapp instanceof EmailService); // false
+
+// Operator instanceof mengembalikan boolean. Operasinya akan menghasilkan nilai true jika objek yang dites
+//  (operand pertama) memiliki prototype yang merupakan operand kedua. Jika prototype operand pertama bukanlah
+//  operand kedua, operasinya akan menghasilkan nilai false.
+
+// Operator instanceof juga akan mengecek prototype secara berantai.
+// Artinya, instanceof juga mengecek hingga prototype yang diwarisi oleh objek tersebut.
