@@ -4,7 +4,7 @@ const coffeeStock = {
   liberica: 200,
 };
 
-module.exports = coffeeStock;
+// module.exports = coffeeStock;
 // console.log(module);
 
 // jika Anda mencoba melihat nilai module yang ada pada berkas state.js
@@ -21,3 +21,7 @@ const isCoffeeMachineReady = true;
 
 // ES6 Module
 export default coffeeStock;
+
+//  mengekspor banyak nilai dalam satu berkas JavaScript menggunakan ES6.
+
+export { coffeeStock, isCoffeeMachineReady };
