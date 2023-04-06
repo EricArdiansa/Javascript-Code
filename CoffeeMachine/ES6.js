@@ -14,3 +14,11 @@ displayStock(coffeeStock);
 
 // console.log(coffeeStock);
 // console.log(isCoffeeMachineReady);
+
+// Namun, jika kita tetap ingin mengubah penamaan variabel dari named import,
+// kita bisa melakukannya dengan menambahkan keyword as setelah penamaan variabelnya.
+
+// import { coffeeStock as stock, isCoffeeMachineReady } from "./state.js";
+
+// console.log(stock);
+// console.log(isCoffeeMachineReady);
