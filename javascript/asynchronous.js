@@ -13,3 +13,48 @@ setTimeout(() => {
 }, 3000);
 
 console.log("Ada yang bisa dibantu?");
+
+// Saat ini ada dua cara atau pola yang digunakan JavaScript dalam menangani proses asynchronous.
+// Pola pertama yang akan kita bahas adalah callback.
+
+function getUsers(isOffline, callback) {
+  // simulate network delay
+  setTimeout(() => {
+    const users = ["John", "Jack", "Abigail"];
+
+    if (isOffline) {
+      callback(new Error("cannot retrieve users due offline"), null);
+      return;
+    }
+
+    callback(null, users);
+  }, 3000);
+}
+
+function usersCallback(error, users) {
+  if (error) {
+    console.log("process failed:", error.message);
+    return;
+  }
+  console.log("process success:", users);
+}
+
+getUsers(false, usersCallback); // process success: ['John', 'Jack', 'Abigail']
+getUsers(true, usersCallback); // process failed: cannot retrieve users due offline
+
+// Anda pasti sudah familier dengan kode di atas.
+// Fungsi getUsers() berjalan secara asynchronous dan memanfaatkan argumen callback untuk mengirimkan nilainya.
+
+function getUsers(isOffline, callback) {
+  // simulate network delay
+  setTimeout(() => {
+    const users = ["John", "Jack", "Abigail"];
+
+    if (isOffline) {
+      callback(new Error("cannot retrieve users due offline"), null);
+      return;
+    }
+
+    callback(null, users);
+  }, 3000);
+}

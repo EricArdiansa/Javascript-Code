@@ -1,0 +1,81 @@
+// callback
+
+function getUsers(isOffline, callback) {
+  // simulate network delay
+  setTimeout(() => {
+    const users = ["John", "Jack", "Abigail"];
+
+    if (isOffline) {
+      callback(new Error("cannot retrieve users due offline"), null);
+      return;
+    }
+
+    callback(null, users);
+  }, 3000);
+}
+
+//Promise
+
+function getUsers(isOffline) {
+  // return a Promise object
+  return new Promise((resolve, reject) => {
+    // simulate network delay
+    setTimeout(() => {
+      const users = ["John", "Jack", "Abigail"];
+
+      if (isOffline) {
+        reject(new Error("cannot retrieve users due offline"));
+        return;
+      }
+
+      resolve(users);
+    }, 3000);
+  });
+}
+
+// Catatan: Objek Promise dibuat dengan cara memanggil constructor Promise, yakni new Promise().
+// Kemudian di dalam constructor, Anda wajib memberikan argumen berupa fungsi yang di dalamnya terdapat operasi
+// asynchronous. Fungsi tersebut juga diberikan akses terhadap dua argumen, yaitu resolve dan reject.
+//  Kedua argumen ini bisa Anda manfaatkan dalam membawa hasil dari proses asynchronous berupa data ataupun error.
+
+// setelah fungsi getUsers() diubah dari callback menjadi Promise-based,
+// cara penggunaan fungsinya pun akan berubah. Fungsi yang mengembalikan objek Promise akan memiliki fungsi
+// .then dan .catch. Fungsi tersebut digunakan untuk mengambil nilai yang dibawa oleh resolve dan reject.
+// Gambarannya seperti ini.
+
+getUsers(false)
+  .then((users) => console.log(users))
+  .catch((err) => console.log(err.message));
+
+//   Nilai yang dibawa oleh resolve() dapat diambil melalui fungsi .then() dan seketika
+//   status Promise akan berubah dari pending ke fulfilled. Di sisi lain, nilai yang dibawa oleh reject()
+//   dapat diambil melalui fungsi .catch() dan seketika status Promise akan berubah dari pending ke rejected.
+
+// Perhatikan juga bahwa .then() dan .catch() selalu mengembalikan Promise,
+// itulah yang menyebabkan pemanggilannya dapat berantai seperti .then().catch().
+
+function getUsers(isOffline) {
+  // return a promise object
+  return new Promise((resolve, reject) => {
+    // simulate network delay
+    setTimeout(() => {
+      const users = ["John", "Jack", "Abigail"];
+
+      if (isOffline) {
+        reject(new Error("cannot retrieve users due offline"));
+        return;
+      }
+
+      resolve(users);
+    }, 3000);
+  });
+}
+
+getUsers(false)
+  .then((users) => console.log(users))
+  .catch((err) => console.log(err.message));
+
+// Jalankan kode di atas, maka fungsi .then() akan terpanggil dan menampilkan data users pada console.
+// Fungsi .catch() tidak akan terpanggil karena Promise tidak pernah berstatus rejected.
+// Jika Anda ingin Promise menghasilkan status rejected, ubahlah nilai argumen pada pemanggilan getUsers()
+// menjadi true.
